@@ -1,0 +1,10 @@
+version: '2'
+services:
+    jhipster_i18n-elasticsearch:
+        container_name: jhipster_i18n-elasticsearch
+        image: elasticsearch:1.7.5
+        # volumes:
+        #     - ~/volumes/jhipster/jhipster_i18n/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300

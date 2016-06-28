@@ -1,0 +1,8 @@
+version: '2'
+services:
+    jhipster_i18n-sonar:
+        container_name: jhipster_i18n-sonar
+        image: sonarqube:5.5-alpine
+        ports:
+            - 9000:9000
+            - 9092:9092

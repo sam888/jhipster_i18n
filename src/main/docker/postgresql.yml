@@ -1,0 +1,12 @@
+version: '2'
+services:
+    jhipster_i18n-postgresql:
+        container_name: jhipster_i18n-postgresql
+        image: postgres:9.5.2
+        # volumes:
+        #     - ~/volumes/jhipster/jhipster_i18n/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=jhipster_i18n
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
