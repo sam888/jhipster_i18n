@@ -18,10 +18,10 @@ spring:
         livereload:
             enabled: false # we use gulp + BrowserSync for livereload
     datasource:
-        url: jdbc:postgresql://localhost:5432/jhipster_i18n
+        url: jdbc:postgresql://localhost:5432/i18n
         name:
-        username: jhipster_i18n
-        password:
+        username: i18n
+        password: i18n
     jpa:
         database-platform: org.jhipster.i18n.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
