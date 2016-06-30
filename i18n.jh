@@ -1,0 +1,44 @@
+
+
+entity Locale {
+  name String required,
+  languageCode String required,
+  countryCode String
+}
+
+
+entity Module {
+  name String required,
+  description String
+}
+
+enum ResourceBundleStatus {
+    DISABLED, STATIC_JSON, DB_JSON
+}
+
+entity ResourceBundle {
+ resourceBundleName String,
+ description String maxlength(100)
+ status ResourceBundleStatus
+}
+
+entity KeyValue {
+  property String required,
+  propertyValue String required,
+  description String
+}
+
+relationship ManyToOne {
+  ResourceBundle{Locale} to Locale
+}
+
+relationship ManyToOne {
+  ResourceBundle{Module} to Module
+}
+
+relationship ManyToOne {
+  KeyValue{ResourceBundle} to ResourceBundle
+}
+
+
+

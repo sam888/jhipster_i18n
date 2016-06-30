@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="jhipsterI18NApp.keyValue.detail.title">Key Value</span> {{vm.keyValue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="jhipsterI18NApp.keyValue.property">Property</span></dt>
+        <dd>
+            <span>{{vm.keyValue.property}}</span>
+        </dd>
+        <dt><span translate="jhipsterI18NApp.keyValue.propertyValue">Property Value</span></dt>
+        <dd>
+            <span>{{vm.keyValue.propertyValue}}</span>
+        </dd>
+        <dt><span translate="jhipsterI18NApp.keyValue.description">Description</span></dt>
+        <dd>
+            <span>{{vm.keyValue.description}}</span>
+        </dd>
+        <dt><span translate="jhipsterI18NApp.keyValue.resourceBundle">Resource Bundle</span></dt>
+        <dd>
+            <a ui-sref="resource-bundle-detail({id:vm.keyValue.resourceBundle.id})">{{vm.keyValue.resourceBundle.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

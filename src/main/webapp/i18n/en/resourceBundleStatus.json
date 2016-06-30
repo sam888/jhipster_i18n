@@ -1,0 +1,10 @@
+{
+    "jhipsterI18NApp": {
+        "ResourceBundleStatus" : {
+            "null": "",
+            "DISABLED": "DISABLED",
+            "STATIC_JSON": "STATIC_JSON",
+            "DB_JSON": "DB_JSON"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "jhipsterI18NApp": {
+        "keyValue" : {
+            "home": {
+                "title": "Key Values",
+                "createLabel": "Create a new Key Value",
+                "createOrEditLabel": "Create or edit a Key Value",
+                "search": "Search for Key Value"
+            },
+            "created": "A new Key Value is created with identifier {{ param }}",
+            "updated": "A Key Value is updated with identifier {{ param }}",
+            "deleted": "A Key Value is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Key Value {{ id }}?"
+            },
+            "detail": {
+                "title": "Key Value"
+            },
+            "property": "Property",
+            "propertyValue": "Property Value",
+            "description": "Description",
+            "resourceBundle": "Resource Bundle"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "jhipsterI18NApp": {
+        "locale" : {
+            "home": {
+                "title": "Locales",
+                "createLabel": "Create a new Locale",
+                "createOrEditLabel": "Create or edit a Locale",
+                "search": "Search for Locale"
+            },
+            "created": "A new Locale is created with identifier {{ param }}",
+            "updated": "A Locale is updated with identifier {{ param }}",
+            "deleted": "A Locale is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Locale {{ id }}?"
+            },
+            "detail": {
+                "title": "Locale"
+            },
+            "name": "Name",
+            "languageCode": "Language Code",
+            "countryCode": "Country Code"
+        }
+    }
+}

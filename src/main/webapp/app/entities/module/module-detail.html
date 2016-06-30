@@ -1,0 +1,22 @@
+
+<div>
+    <h2><span translate="jhipsterI18NApp.module.detail.title">Module</span> {{vm.module.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="jhipsterI18NApp.module.name">Name</span></dt>
+        <dd>
+            <span>{{vm.module.name}}</span>
+        </dd>
+        <dt><span translate="jhipsterI18NApp.module.description">Description</span></dt>
+        <dd>
+            <span>{{vm.module.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

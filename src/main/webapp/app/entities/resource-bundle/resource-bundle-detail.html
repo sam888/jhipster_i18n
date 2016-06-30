@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="jhipsterI18NApp.resourceBundle.detail.title">Resource Bundle</span> {{vm.resourceBundle.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="jhipsterI18NApp.resourceBundle.resourceBundleName">Resource Bundle Name</span></dt>
+        <dd>
+            <span>{{vm.resourceBundle.resourceBundleName}}</span>
+        </dd>
+        <dt><span translate="jhipsterI18NApp.resourceBundle.description">Description</span></dt>
+        <dd>
+            <span>{{vm.resourceBundle.description}}</span>
+        </dd>
+        <dt><span translate="jhipsterI18NApp.resourceBundle.status">Status</span></dt>
+        <dd>
+            <span translate="{{'jhipsterI18NApp.ResourceBundleStatus.' + vm.resourceBundle.status}}">{{vm.resourceBundle.status}}</span>
+        </dd>
+        <dt><span translate="jhipsterI18NApp.resourceBundle.locale">Locale</span></dt>
+        <dd>
+            <a ui-sref="locale-detail({id:vm.resourceBundle.locale.id})">{{vm.resourceBundle.locale.id}}</a>
+        </dd>
+        <dt><span translate="jhipsterI18NApp.resourceBundle.module">Module</span></dt>
+        <dd>
+            <a ui-sref="module-detail({id:vm.resourceBundle.module.id})">{{vm.resourceBundle.module.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

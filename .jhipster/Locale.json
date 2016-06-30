@@ -1,0 +1,31 @@
+{
+  "relationships": [],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "languageCode",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "countryCode",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160629121218",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "locale"
+}

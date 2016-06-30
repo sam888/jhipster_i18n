@@ -1,0 +1,45 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "many-to-one",
+      "relationshipName": "locale",
+      "otherEntityName": "locale",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "many-to-one",
+      "relationshipName": "module",
+      "otherEntityName": "module",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "resourceBundleName",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": 100
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "status",
+      "fieldType": "ResourceBundleStatus",
+      "fieldValues": "DISABLED,STATIC_JSON,DB_JSON"
+    }
+  ],
+  "changelogDate": "20160629121220",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "resource_bundle"
+}

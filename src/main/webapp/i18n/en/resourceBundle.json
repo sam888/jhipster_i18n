@@ -1,0 +1,26 @@
+{
+    "jhipsterI18NApp": {
+        "resourceBundle" : {
+            "home": {
+                "title": "Resource Bundles",
+                "createLabel": "Create a new Resource Bundle",
+                "createOrEditLabel": "Create or edit a Resource Bundle",
+                "search": "Search for Resource Bundle"
+            },
+            "created": "A new Resource Bundle is created with identifier {{ param }}",
+            "updated": "A Resource Bundle is updated with identifier {{ param }}",
+            "deleted": "A Resource Bundle is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resource Bundle {{ id }}?"
+            },
+            "detail": {
+                "title": "Resource Bundle"
+            },
+            "resourceBundleName": "Resource Bundle Name",
+            "description": "Description",
+            "status": "Status",
+            "locale": "Locale",
+            "module": "Module"
+        }
+    }
+}
