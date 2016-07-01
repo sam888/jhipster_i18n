@@ -9,10 +9,10 @@
     <changeSet id="20160629121221-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="resource_bundle_id"
-                                 baseTableName="key_value"
-                                 constraintName="fk_keyvalue_resourcebundle_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="resource_bundle"/>
+                                 baseTableName="Key_Value"
+                                 constraintName="fk_keyvalue_resourcebundle"
+                                 referencedColumnNames="resource_bundle_id"
+                                 referencedTableName="Resource_Bundle"/>
 
     </changeSet>
 </databaseChangeLog>
