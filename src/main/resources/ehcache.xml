@@ -36,4 +36,11 @@
     <cache name="org.jhipster.i18n.domain.User.persistentTokens"
            timeToLiveSeconds="3600">
     </cache>
-    </ehcache>
+
+    <!-- added -->
+    <cache name="org.jhipster.i18n.domain.Module" timeToLiveSeconds="3600"></cache>
+    <cache name="org.jhipster.i18n.domain.ResourceBundle" timeToLiveSeconds="3600"></cache>
+    <cache name="org.jhipster.i18n.domain.KeyValue" timeToLiveSeconds="3600"></cache>
+    <cache name="org.jhipster.i18n.domain.Locale" timeToLiveSeconds="3600"></cache>
+
+</ehcache>

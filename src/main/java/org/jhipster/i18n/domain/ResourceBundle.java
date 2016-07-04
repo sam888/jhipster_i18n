@@ -15,7 +15,7 @@ import org.jhipster.i18n.domain.enumeration.ResourceBundleStatus;
  * A ResourceBundle.
  */
 @Entity
-@Table(name = "resource_bundle")
+@Table(name = "resource_bundle", uniqueConstraints = @UniqueConstraint(columnNames = {"locale_id", "module_id" }))
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "resourcebundle")
 public class ResourceBundle implements Serializable {
@@ -38,10 +38,12 @@ public class ResourceBundle implements Serializable {
     @Column(name = "status")
     private ResourceBundleStatus status;
 
-    @ManyToOne
+    @ManyToOne( fetch=FetchType.EAGER  )
+    @JoinColumn(name="locale_id", nullable=false)
     private Locale locale;
 
-    @ManyToOne
+    @ManyToOne( fetch=FetchType.EAGER )
+    @JoinColumn(name="module_id", nullable=false)
     private Module module;
 
     public Long getId() {

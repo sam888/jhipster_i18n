@@ -42,13 +42,13 @@
 
         <div class="form-group">
             <label translate="jhipsterI18NApp.resourceBundle.locale" for="field_locale">Locale</label>
-            <select class="form-control" id="field_locale" name="locale" ng-model="vm.resourceBundle.locale" ng-options="locale as locale.id for locale in vm.locales track by locale.id">
+            <select class="form-control" id="field_locale" name="locale" ng-model="vm.resourceBundle.locale" ng-options="locale as locale.name for locale in vm.locales track by locale.name">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="jhipsterI18NApp.resourceBundle.module" for="field_module">Module</label>
-            <select class="form-control" id="field_module" name="module" ng-model="vm.resourceBundle.module" ng-options="module as module.id for module in vm.modules track by module.id">
+            <select class="form-control" id="field_module" name="module" ng-model="vm.resourceBundle.module" ng-options="module as module.name for module in vm.modules track by module.name">
                 <option value=""></option>
             </select>
         </div>

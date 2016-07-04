@@ -12,5 +12,8 @@
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20160629121220_added_entity_constraints_ResourceBundle.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160629121221_added_entity_constraints_KeyValue.xml" relativeToChangelogFile="false"/>
-    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+    <!-- Contains unique constraints for resource_bundle table -->
+    <include file="classpath:config/liquibase/changelog/20160704190219_changelog.xml" relativeToChangelogFile="false"/>
+
 </databaseChangeLog>

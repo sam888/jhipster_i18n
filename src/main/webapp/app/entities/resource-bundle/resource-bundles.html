@@ -51,10 +51,10 @@
                     <td>{{resourceBundle.description}}</td>
                     <td translate="{{'jhipsterI18NApp.ResourceBundleStatus.' + resourceBundle.status}}">{{resourceBundle.status}}</td>
                     <td>
-                        <a ui-sref="locale-detail({id:resourceBundle.locale.id})">{{resourceBundle.locale.id}}</a>
+                        <a ui-sref="locale-detail({id:resourceBundle.locale.id})">{{resourceBundle.locale.name}}</a>
                     </td>
                     <td>
-                        <a ui-sref="module-detail({id:resourceBundle.module.id})">{{resourceBundle.module.id}}</a>
+                        <a ui-sref="module-detail({id:resourceBundle.module.id})">{{resourceBundle.module.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -17,12 +17,12 @@
             <span translate="{{'jhipsterI18NApp.ResourceBundleStatus.' + vm.resourceBundle.status}}">{{vm.resourceBundle.status}}</span>
         </dd>
         <dt><span translate="jhipsterI18NApp.resourceBundle.locale">Locale</span></dt>
-        <dd>
-            <a ui-sref="locale-detail({id:vm.resourceBundle.locale.id})">{{vm.resourceBundle.locale.id}}</a>
+        <dd ng-init="locale=vm.resourceBundle.locale">
+            <a ui-sref="locale-detail({locale.id})">{{locale.id}}</a>, {{locale.name}}
         </dd>
         <dt><span translate="jhipsterI18NApp.resourceBundle.module">Module</span></dt>
-        <dd>
-            <a ui-sref="module-detail({id:vm.resourceBundle.module.id})">{{vm.resourceBundle.module.id}}</a>
+        <dd ng-init="module=vm.resourceBundle.module">
+            <a ui-sref="module-detail({id:vm.resourceBundle.module.id})">{{module.id}}</a>, {{module.name}}
         </dd>
     </dl>
 
