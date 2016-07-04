@@ -22,6 +22,7 @@ public class Locale implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "locale_id")
     private Long id;
 
     @NotNull

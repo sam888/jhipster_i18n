@@ -21,6 +21,7 @@ public class Module implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @Column(name = "module_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

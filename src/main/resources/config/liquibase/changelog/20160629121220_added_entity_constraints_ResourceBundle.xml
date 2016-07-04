@@ -9,16 +9,16 @@
     <changeSet id="20160629121220-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="locale_id"
-                                 baseTableName="Resource_Bundle"
+                                 baseTableName="resource_bundle"
                                  constraintName="fk_resourcebundle_locale"
                                  referencedColumnNames="locale_id"
-                                 referencedTableName="Locale"/>
+                                 referencedTableName="locale"/>
 
         <addForeignKeyConstraint baseColumnNames="module_id"
-                                 baseTableName="Resource_Bundle"
+                                 baseTableName="resource_bundle"
                                  constraintName="fk_resourcebundle_module"
                                  referencedColumnNames="module_id"
-                                 referencedTableName="Module"/>
+                                 referencedTableName="module"/>
 
     </changeSet>
 </databaseChangeLog>

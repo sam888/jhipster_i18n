@@ -21,6 +21,7 @@ public class KeyValue implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @Column(name = "key_value_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
