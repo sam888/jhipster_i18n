@@ -20,7 +20,8 @@
             var toast = this.toast,
                 alertId = 0, // unique id for each alert. Starts from 0.
                 alerts = [],
-                timeout = 5000; // default timeout
+                // timeout = 5000; // default timeout
+                timeout = 0; // no timeout
 
             return {
                 factory: factory,

@@ -2,8 +2,11 @@ package org.jhipster.i18n.web.rest.errors;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.dao.ConcurrencyFailureException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
@@ -19,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
  */
 @ControllerAdvice
 public class ExceptionTranslator {
+
+    private final Logger log = LoggerFactory.getLogger(ExceptionTranslator.class);
 
     @ExceptionHandler(ConcurrencyFailureException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
@@ -82,4 +87,28 @@ public class ExceptionTranslator {
         }
         return builder.body(errorDTO);
     }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorDTO processDataIntegrityViolationException(DataIntegrityViolationException exception) {
+
+        String errorMsgPrefix = "Data Integrity Violation error occurred: ";
+        log.error(errorMsgPrefix + " {}", exception.getMessage(), exception);
+
+        String errorMessage = null;
+        if (exception.getRootCause() != null) {
+            errorMessage = exception.getRootCause().getMessage();
+        } else if (exception.getMessage() != null) {
+            errorMessage = exception.getMessage();
+        } else {
+            // set default error message
+            errorMessage = exception.toString();
+        }
+
+        errorMessage = errorMsgPrefix + errorMessage;
+        ErrorDTO errorDTO = new ErrorDTO(errorMessage, exception.getMessage());
+        return errorDTO;
+    }
+
 }
