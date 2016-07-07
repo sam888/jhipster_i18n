@@ -27,6 +27,7 @@ public class ResourceBundle implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     @Column(name = "resource_bundle_name")
     private String resourceBundleName;
 
@@ -34,16 +35,17 @@ public class ResourceBundle implements Serializable {
     @Column(name = "description", length = 100)
     private String description;
 
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
+    @Column(name = "status") @NotNull
     private ResourceBundleStatus status;
 
     @ManyToOne( fetch=FetchType.EAGER  )
-    @JoinColumn(name="locale_id", nullable=false)
+    @JoinColumn(name="locale_id", nullable=false) @NotNull
     private Locale locale;
 
     @ManyToOne( fetch=FetchType.EAGER )
-    @JoinColumn(name="module_id", nullable=false)
+    @JoinColumn(name="module_id", nullable=false) @NotNull
     private Module module;
 
     public Long getId() {

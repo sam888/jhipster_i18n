@@ -24,6 +24,7 @@
 
         function save () {
             vm.isSaving = true;
+            vm.submitted = true;
             if (vm.locale.id !== null) {
                 Locale.update(vm.locale, onSaveSuccess, onSaveError);
             } else {
@@ -35,6 +36,7 @@
             $scope.$emit('jhipsterI18NApp:localeUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
+            vm.submitted = false;
         }
 
         function onSaveError () {

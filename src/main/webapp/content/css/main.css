@@ -332,3 +332,10 @@ ui bootstrap tweaks
 
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+
+/* red asterisk for required fields */
+.required label:after {
+    color: #e32;
+    content: ' *';
+    display:inline;
+}

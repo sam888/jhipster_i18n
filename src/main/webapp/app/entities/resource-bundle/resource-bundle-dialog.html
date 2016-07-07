@@ -13,11 +13,16 @@
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.resourceBundle.id" readonly />
         </div>
-        <div class="form-group">
+        <div class="form-group required">
             <label class="control-label" translate="jhipsterI18NApp.resourceBundle.resourceBundleName" for="field_resourceBundleName">Resource Bundle Name</label>
             <input type="text" class="form-control" name="resourceBundleName" id="field_resourceBundleName"
-                    ng-model="vm.resourceBundle.resourceBundleName"
-                     />
+                    ng-model="vm.resourceBundle.resourceBundleName" required />
+            <div ng-show="editForm.resourceBundleName.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.resourceBundleName.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label" translate="jhipsterI18NApp.resourceBundle.description" for="field_description">Description</label>
@@ -31,26 +36,46 @@
                 </p>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group required">
             <label class="control-label" translate="jhipsterI18NApp.resourceBundle.status" for="field_status">Status</label>
-            <select class="form-control" name="status" ng-model="vm.resourceBundle.status" id="field_status">
+            <select class="form-control" name="status" ng-model="vm.resourceBundle.status" id="field_status" required>
                 <option value="DISABLED" translate="jhipsterI18NApp.ResourceBundleStatus.DISABLED">DISABLED</option>
                 <option value="STATIC_JSON" translate="jhipsterI18NApp.ResourceBundleStatus.STATIC_JSON">STATIC_JSON</option>
                 <option value="DB_JSON" translate="jhipsterI18NApp.ResourceBundleStatus.DB_JSON">DB_JSON</option>
             </select>
+            <div ng-show="editForm.status.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.status.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group required">
             <label translate="jhipsterI18NApp.resourceBundle.locale" for="field_locale">Locale</label>
-            <select class="form-control" id="field_locale" name="locale" ng-model="vm.resourceBundle.locale" ng-options="locale as locale.name for locale in vm.locales track by locale.name">
+            <select class="form-control" id="field_locale" name="locale" ng-model="vm.resourceBundle.locale" required
+                    ng-options="locale as locale.name for locale in vm.locales track by locale.name">
                 <option value=""></option>
             </select>
+            <div ng-show="editForm.locale.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.locale.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
-        <div class="form-group">
+        <div class="form-group required">
             <label translate="jhipsterI18NApp.resourceBundle.module" for="field_module">Module</label>
-            <select class="form-control" id="field_module" name="module" ng-model="vm.resourceBundle.module" ng-options="module as module.name for module in vm.modules track by module.name">
+            <select class="form-control" id="field_module" name="module" ng-model="vm.resourceBundle.module" required
+                    ng-options="module as module.name for module in vm.modules track by module.name">
                 <option value=""></option>
             </select>
+            <div ng-show="editForm.module.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.module.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
     </div>
     <div class="modal-footer">
