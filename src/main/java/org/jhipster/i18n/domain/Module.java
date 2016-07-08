@@ -13,7 +13,9 @@ import java.util.Objects;
  * A Module.
  */
 @Entity
-@Table(name = "module")
+@Table(name = "module", uniqueConstraints={
+    @UniqueConstraint(columnNames = { "name" } )
+})
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "module")
 public class Module implements Serializable {

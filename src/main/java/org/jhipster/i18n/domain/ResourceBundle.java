@@ -15,7 +15,10 @@ import org.jhipster.i18n.domain.enumeration.ResourceBundleStatus;
  * A ResourceBundle.
  */
 @Entity
-@Table(name = "resource_bundle", uniqueConstraints = @UniqueConstraint(columnNames = {"locale_id", "module_id" }))
+@Table(name = "resource_bundle", uniqueConstraints={
+    @UniqueConstraint(columnNames = {"locale_id", "module_id" }),
+    @UniqueConstraint(columnNames = { "resource_bundle_name" } )
+})
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "resourcebundle")
 public class ResourceBundle implements Serializable {

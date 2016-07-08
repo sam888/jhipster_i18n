@@ -1,44 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <changeSet author="Sam (generated)" id="1467615754770-1">
-        <addColumn tableName="key_value">
-            <column name="resource_bundle_resource_bundle_id" type="int8"/>
-        </addColumn>
-    </changeSet>
+
     <changeSet author="Sam (generated)" id="1467615754770-2">
         <addUniqueConstraint columnNames="locale_id, module_id" tableName="resource_bundle"/>
     </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-3">
-        <addForeignKeyConstraint baseColumnNames="resource_bundle_resource_bundle_id" baseTableName="key_value" constraintName="FK_3q4c744foeev47g1jmjsvq0kq" deferrable="false" initiallyDeferred="false" referencedColumnNames="resource_bundle_id" referencedTableName="resource_bundle"/>
-    </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-4">
-        <dropForeignKeyConstraint baseTableName="key_value" constraintName="fk_keyvalue_resourcebundle"/>
-    </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-5">
-        <dropColumn columnName="resource_bundle_id" tableName="key_value"/>
-    </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-6">
-        <dropSequence sequenceName="jhi_persistent_audit_event_event_id_seq"/>
-    </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-7">
-        <dropSequence sequenceName="jhi_user_id_seq"/>
-    </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-8">
-        <dropSequence sequenceName="key_value_key_value_id_seq"/>
-    </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-9">
-        <dropSequence sequenceName="locale_locale_id_seq"/>
-    </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-10">
-        <dropSequence sequenceName="module_module_id_seq"/>
-    </changeSet>
-    <changeSet author="Sam (generated)" id="1467615754770-11">
-        <dropSequence sequenceName="resource_bundle_resource_bundle_id_seq"/>
-    </changeSet>
+
     <changeSet author="Sam (generated)" id="1467615754770-12">
         <addNotNullConstraint columnDataType="bigint" columnName="locale_id" tableName="resource_bundle"/>
     </changeSet>
     <changeSet author="Sam (generated)" id="1467615754770-13">
         <addNotNullConstraint columnDataType="bigint" columnName="module_id" tableName="resource_bundle"/>
     </changeSet>
+
+    <changeSet author="Sam (generated)" id="1467888310341-2">
+        <addUniqueConstraint columnNames="resource_bundle_name" tableName="resource_bundle"/>
+    </changeSet>
+
+    <changeSet author="Sam (generated)" id="1467893366830-1">
+        <addUniqueConstraint columnNames="language_code, country_code" tableName="locale"/>
+    </changeSet>
+    <changeSet author="Sam (generated)" id="1467893366830-2">
+        <addUniqueConstraint columnNames="name" tableName="locale"/>
+    </changeSet>
+
+    <changeSet author="Sam (generated)" id="1467893366830-3">
+        <addUniqueConstraint columnNames="name" tableName="module"/>
+    </changeSet>
+
 </databaseChangeLog>

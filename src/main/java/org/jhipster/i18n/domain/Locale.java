@@ -13,7 +13,10 @@ import java.util.Objects;
  * A Locale.
  */
 @Entity
-@Table(name = "locale")
+@Table(name = "locale", uniqueConstraints={
+    @UniqueConstraint(columnNames = {"language_code", "country_code" }),
+    @UniqueConstraint(columnNames = { "name" } )
+})
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "locale")
 public class Locale implements Serializable {

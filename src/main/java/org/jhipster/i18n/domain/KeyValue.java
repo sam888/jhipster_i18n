@@ -37,6 +37,7 @@ public class KeyValue implements Serializable {
     private String description;
 
     @ManyToOne
+    @JoinColumn(name="resource_bundle_id", nullable=false)
     private ResourceBundle resourceBundle;
 
     public Long getId() {
