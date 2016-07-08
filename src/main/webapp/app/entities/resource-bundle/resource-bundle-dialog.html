@@ -53,30 +53,150 @@
 
         <div class="form-group required">
             <label translate="jhipsterI18NApp.resourceBundle.locale" for="field_locale">Locale</label>
-            <select class="form-control" id="field_locale" name="locale" ng-model="vm.resourceBundle.locale" required
-                    ng-options="locale as locale.name for locale in vm.locales track by locale.name">
-                <option value=""></option>
-            </select>
-            <div ng-show="editForm.locale.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.locale.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
+
+            <div ng-if="vm.resourceBundle.id == null">
+                <select class="form-control" id="field_locale" name="locale" ng-model="vm.resourceBundle.locale" required
+                        ng-options="locale as locale.name for locale in vm.locales track by locale.name">
+                    <option value=""></option>
+                </select>
+                <div ng-show="editForm.locale.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.locale.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
             </div>
+            <div ng-if="vm.resourceBundle.id != null">
+                <input type="text" class="form-control" id="field_locale" name="locale"
+                       ng-model="vm.resourceBundle.locale.name" readonly />
+            </div>
+
         </div>
+
         <div class="form-group required">
             <label translate="jhipsterI18NApp.resourceBundle.module" for="field_module">Module</label>
-            <select class="form-control" id="field_module" name="module" ng-model="vm.resourceBundle.module" required
-                    ng-options="module as module.name for module in vm.modules track by module.name">
-                <option value=""></option>
-            </select>
-            <div ng-show="editForm.module.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.module.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
+
+            <div ng-if="vm.resourceBundle.id == null">
+                <select class="form-control" id="field_module" name="module" ng-model="vm.resourceBundle.module" required
+                        ng-options="module as module.name for module in vm.modules track by module.name">
+                    <option value=""></option>
+                </select>
+                <div ng-show="editForm.module.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.module.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
             </div>
+            <div ng-if="vm.resourceBundle.id != null">
+                <input type="text" class="form-control" id="field_module" name="module"
+                       ng-model="vm.resourceBundle.module.name" readonly />
+            </div>
+
         </div>
+
+        <hr class="" />
+
+        <div class="table-responsive form-group">
+            <label translate="" >Key Value list</label>
+            <div class="form-group flex-row-start" ng-if="vm.resourceBundle.id != null">
+                <button type="button" class="btn btn-primary" ng-click="vm.addKeyValueRow()" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="jhipsterI18NApp.resourceBundle.home.keyValue.createLabel">
+                         Create a Key Value
+                    </span>
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" ng-click="vm.clearKeyValueCache()" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs">
+                         Clear Cache
+                    </span>
+                </button>
+            </div>
+
+            <table class="table table-bordered table-hover" >
+                <thead>
+                    <tr>
+                        <th><a href="" ng-click="orderByField='id'; reverseSort = !reverseSort">Key Id</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="orderByField='propertyValue'; reverseSort = !reverseSort">Key</a>
+                        </th>
+                        <th>Value</th>
+                        <th>Description</th>
+                        <th class="col-md-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="keyValue in vm.keyValues | orderBy:orderByField:reverseSort"
+                        ng-init="keyValue.isEditing = false; keyValue.saveBtnClicked = false" >
+                        <td>
+                            {{keyValue.id}}
+                        </td>
+                        <td>
+                            <div class="form-group required" ng-class="{'has-error': keyValue.saveBtnClicked && !keyValue.property}" >
+                                    <textarea type="text" class="form-control" ng-disabled="!keyValue.isEditing"
+                                              ng-model="keyValue.property" required/>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="form-group required" ng-class="{'has-error': keyValue.saveBtnClicked && !keyValue.propertyValue}" >
+                                    <textarea type="text" class="form-control" ng-disabled="!keyValue.isEditing"
+                                              ng-model="keyValue.propertyValue" required/>
+                            </div>
+                        </td>
+                        <td>
+                                <textarea type="text" class="form-control" ng-disabled="!keyValue.isEditing"
+                                          ng-model="keyValue.description" />
+                        </td>
+
+                        <td class="text-center">
+                            <div class="flex-row-space-around">
+
+                                <button type="button" class="btn btn-primary btn-sm" ng-show="!keyValue.isEditing"
+                                        ng-click="keyValue.isEditing=true;">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    <span class="hidden-xs hidden-sm" translate="entity.action.edit">Edit</span>
+                                </button>
+
+                                &nbsp;
+                                <button type="button" class="btn btn-primary btn-sm" ng-show="keyValue.isEditing">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    <span class="hidden-xs hidden-sm" translate="entity.action.save">Save</span>
+                                </button>
+
+                                &nbsp;
+                                <button type="button" class="btn btn-danger btn-sm" ng-show="keyValue.isEditing && keyValue.id">
+
+                                    <span class="glyphicon glyphicon-remove-circle"></span>
+                                    <span class="hidden-xs hidden-sm" translate="entity.action.delete">Delete</span>
+                                </button>
+
+                                <button type="button" class="btn btn-danger btn-sm" ng-show="keyValue.isEditing && !keyValue.id"
+                                        ng-click = "vm.removeKeyValueRow( keyValue )" >
+                                    <span class="glyphicon glyphicon-remove-circle"></span>
+                                    <span class="hidden-xs hidden-sm" translate="entity.action.delete">Delete</span>
+                                </button>
+
+                                &nbsp;
+
+                                <button type="button" class="btn btn-default btn-sm" ng-show="keyValue.isEditing"
+                                        ng-click="keyValue.isEditing=false;" >
+                                    <span class="glyphicon glyphicon-ban-circle"></span>
+                                    <span class="hidden-xs hidden-sm" translate="entity.action.cancel">Cancel</span>
+                                </button>
+
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
@@ -87,3 +207,13 @@
         </button>
     </div>
 </form>
+
+<style type="text/css">
+    .app-modal-window .modal-dialog {
+        width: 80% !important;
+    }
+
+    textarea {
+        resize: none;
+    }
+</style>

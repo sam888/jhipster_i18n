@@ -70,6 +70,7 @@
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
+                    windowClass: 'app-modal-window',
                     resolve: {
                         entity: function () {
                             return {
@@ -100,6 +101,7 @@
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
+                    windowClass: 'app-modal-window',
                     resolve: {
                         entity: ['ResourceBundle', function(ResourceBundle) {
                             return ResourceBundle.get({id : $stateParams.id}).$promise;

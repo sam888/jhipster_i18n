@@ -5,6 +5,7 @@
                 "title": "Resource Bundles",
                 "createLabel": "Create a new Resource Bundle",
                 "createOrEditLabel": "Create or edit a Resource Bundle",
+                "keyValue.createLabel": "Create a Key Value",
                 "search": "Search for Resource Bundle"
             },
             "created": "A new Resource Bundle is created with identifier {{ param }}",
@@ -21,6 +22,12 @@
             "status": "Status",
             "locale": "Locale",
             "module": "Module"
-        }
+        },
+        "keyValue.delete.question": "Are you sure you want to delete Key Value {{ id }}?",
+        "keyValue.updated": "A Key Value is updated with identifier {{ param }}",
+        "keyValue.property": "Key",
+        "keyValue.created": "A new Key Value is created with identifier {{ param }}",
+        "keyValue.deleted": "A Key Value is deleted with identifier {{ param }}",
+        "keyValue.propertyValue": "Value"
     }
 }

@@ -7,10 +7,12 @@ import org.jhipster.i18n.repository.search.KeyValueSearchRepository;
 import org.jhipster.i18n.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -50,6 +52,7 @@ public class KeyValueResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Transactional @Modifying
     public ResponseEntity<KeyValue> createKeyValue(@Valid @RequestBody KeyValue keyValue) throws URISyntaxException {
         log.debug("REST request to save KeyValue : {}", keyValue);
         if (keyValue.getId() != null) {
@@ -75,6 +78,7 @@ public class KeyValueResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Transactional @Modifying
     public ResponseEntity<KeyValue> updateKeyValue(@Valid @RequestBody KeyValue keyValue) throws URISyntaxException {
         log.debug("REST request to update KeyValue : {}", keyValue);
         if (keyValue.getId() == null) {
@@ -132,6 +136,7 @@ public class KeyValueResource {
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Transactional @Modifying
     public ResponseEntity<Void> deleteKeyValue(@PathVariable Long id) {
         log.debug("REST request to delete KeyValue : {}", id);
         keyValueRepository.delete(id);
@@ -158,4 +163,13 @@ public class KeyValueResource {
     }
 
 
+    @Timed
+    @RequestMapping(value = "/key-values/rb/{id}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<KeyValue> getKeyValuesByResourceBundleId(@PathVariable Long id) {
+        log.debug("REST request to get all KeyValues by Resource Bundle Id");
+        List<KeyValue> keyValues = keyValueRepository.getKeyValuesByResourceBundleId( id );
+        return keyValues;
+    }
 }

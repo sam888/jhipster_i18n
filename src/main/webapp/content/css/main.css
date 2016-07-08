@@ -277,6 +277,26 @@ entity tables helpers
    justify-content: flex-end;
 }
 
+/* A variation of .flex-btn-group-container above */
+.flex-row-space-around {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: space-around;
+}
+
+/* A variation of .flex-btn-group-container above */
+.flex-row-start {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
 .jh-table > tbody > tr > td {
     /* Align text in td verifically (top aligned by Bootstrap) */
     vertical-align: middle;
