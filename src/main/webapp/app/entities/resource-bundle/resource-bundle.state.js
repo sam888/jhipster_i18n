@@ -114,6 +114,36 @@
                 });
             }]
         })
+
+        // Showing 'Confirm delete operation' dialog for deleting Key Value record
+        .state('resource-bundle-edit-delete-key-value', {
+            parent: 'resource-bundle',
+            url: '/{id}/delete-keyValue',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/key-value/key-value-delete-dialog.html',
+                    controller: 'KeyValueDeleteController',
+                    controllerAs: 'vm',
+                    size: 'md',
+                    resolve: {
+                        entity: ['KeyValue', function(KeyValue) {
+                            return KeyValue.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+
+                    }, function() {
+                        // required else clicking the Delete button using ui-sref attribute to enter this state again
+                        // to open the 'Confirm Delete' dialog won't work
+                        $state.go('^');
+                    }
+                );
+            }]
+        })
+
         .state('resource-bundle.delete', {
             parent: 'resource-bundle',
             url: '/{id}/delete',

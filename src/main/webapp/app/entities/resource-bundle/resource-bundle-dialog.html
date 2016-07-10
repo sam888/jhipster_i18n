@@ -7,7 +7,11 @@
         <h4 class="modal-title" id="myResourceBundleLabel" translate="jhipsterI18NApp.resourceBundle.home.createOrEditLabel">Create or edit a Resource Bundle</h4>
     </div>
     <div class="modal-body">
-        <jhi-alert-error></jhi-alert-error>
+
+        <div ng-show="vm.alertForResourceBundle">
+            <jhi-alert-error></jhi-alert-error>
+        </div>
+
         <div class="form-group" ng-show="vm.resourceBundle.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
@@ -56,7 +60,7 @@
 
             <div ng-if="vm.resourceBundle.id == null">
                 <select class="form-control" id="field_locale" name="locale" ng-model="vm.resourceBundle.locale" required
-                        ng-options="locale as locale.name for locale in vm.locales track by locale.name">
+                        ng-options="locale as vm.printLocale( locale ) for locale in vm.locales track by locale.name">
                     <option value=""></option>
                 </select>
                 <div ng-show="editForm.locale.$invalid">
@@ -68,7 +72,7 @@
             </div>
             <div ng-if="vm.resourceBundle.id != null">
                 <input type="text" class="form-control" id="field_locale" name="locale"
-                       ng-model="vm.resourceBundle.locale.name" readonly />
+                       value="{{ vm.printLocale( vm.resourceBundle.locale ) }}" readonly />
             </div>
 
         </div>
@@ -96,6 +100,11 @@
         </div>
 
         <hr class="" />
+
+        <div ng-show="!vm.alertForResourceBundle">
+            <jhi-alert-error></jhi-alert-error>
+            <jhi-alert></jhi-alert>
+        </div>
 
         <div class="table-responsive form-group">
             <label translate="" >Key Value list</label>
@@ -156,19 +165,21 @@
                             <div class="flex-row-space-around">
 
                                 <button type="button" class="btn btn-primary btn-sm" ng-show="!keyValue.isEditing"
-                                        ng-click="keyValue.isEditing=true;">
+                                            ng-click="keyValue.isEditing=true; vm.backupKeyValue( keyValue )">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                     <span class="hidden-xs hidden-sm" translate="entity.action.edit">Edit</span>
                                 </button>
 
                                 &nbsp;
-                                <button type="button" class="btn btn-primary btn-sm" ng-show="keyValue.isEditing">
+                                    <button type="button" class="btn btn-primary btn-sm" ng-show="keyValue.isEditing"
+                                            ng-click="vm.saveKeyValue( keyValue )">
                                     <span class="glyphicon glyphicon-ok"></span>
                                     <span class="hidden-xs hidden-sm" translate="entity.action.save">Save</span>
                                 </button>
 
                                 &nbsp;
-                                <button type="button" class="btn btn-danger btn-sm" ng-show="keyValue.isEditing && keyValue.id">
+                                    <button type="button" class="btn btn-danger btn-sm" ng-show="keyValue.isEditing && keyValue.id"
+                                        ui-sref="resource-bundle-edit-delete-key-value({id:keyValue.id})">
 
                                     <span class="glyphicon glyphicon-remove-circle"></span>
                                     <span class="hidden-xs hidden-sm" translate="entity.action.delete">Delete</span>
@@ -183,7 +194,7 @@
                                 &nbsp;
 
                                 <button type="button" class="btn btn-default btn-sm" ng-show="keyValue.isEditing"
-                                        ng-click="keyValue.isEditing=false;" >
+                                            ng-click="vm.restoreKeyValueBackup( keyValue ); keyValue.isEditing=false;" >
                                     <span class="glyphicon glyphicon-ban-circle"></span>
                                     <span class="hidden-xs hidden-sm" translate="entity.action.cancel">Cancel</span>
                                 </button>

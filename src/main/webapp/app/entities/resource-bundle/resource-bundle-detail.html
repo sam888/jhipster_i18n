@@ -18,13 +18,48 @@
         </dd>
         <dt><span translate="jhipsterI18NApp.resourceBundle.locale">Locale</span></dt>
         <dd ng-init="locale=vm.resourceBundle.locale">
-            <a ui-sref="locale-detail({locale.id})">{{locale.id}}</a>, {{locale.name}}
+            <a ui-sref="locale-detail({id:locale.id})">{{locale.id}}</a>, {{ vm.printLocale(locale) }}
         </dd>
         <dt><span translate="jhipsterI18NApp.resourceBundle.module">Module</span></dt>
         <dd ng-init="module=vm.resourceBundle.module">
-            <a ui-sref="module-detail({id:vm.resourceBundle.module.id})">{{module.id}}</a>, {{module.name}}
+            <a ui-sref="module-detail({id:module.id})">{{module.id}}</a>, {{module.name}}
         </dd>
     </dl>
+
+    <div class="table-responsive form-group">
+        <label translate="" >Key Value list</label>
+
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th><a href="" ng-click="orderByField='id'; reverseSort = !reverseSort">Key Id</a>
+                </th>
+                <th>
+                    <a href="" ng-click="orderByField='propertyValue'; reverseSort = !reverseSort">Key</a>
+                </th>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="keyValue in vm.keyValues | orderBy:orderByField:reverseSort" ng-init="keyValue.isEditing=false">
+                <td>
+                    {{keyValue.id}}
+                </td>
+                <td>
+                    {{keyValue.property}}
+                </td>
+                <td>
+                    {{keyValue.propertyValue}}
+                </td>
+                <td>
+                    {{keyValue.description}}
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
 
     <button type="submit"
             onclick="window.history.back()"
