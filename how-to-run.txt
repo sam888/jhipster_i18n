@@ -1,9 +1,9 @@
 
-    How to run the i18n JHipster app
+    How to run the I18N web application (implemented using JHipster 3.4.2)
 
 0. Install latest Java(i.e. 7 or 8), Gradle and PostgreSQL
 
-1. Check out a copy of i18n from Git to your local PC
+1. Check out the jhipster_i18n application from GitHub at https://github.com/sam888/jhipster_i18n to your local PC
 
 2. Find i18n.sql from i18n project folder and copy it to your PostgreSQL
    installation folder
@@ -49,4 +49,4 @@
 
 
  Author: Samuel Huang
- Date:   12-July-2016
+ Date:   13-July-2016
