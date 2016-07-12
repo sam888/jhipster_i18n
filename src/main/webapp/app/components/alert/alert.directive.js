@@ -21,6 +21,7 @@
 
         vm.alerts = AlertService.get();
         $scope.$on('$destroy', function () {
+            AlertService.closeAllAlerts();
             vm.alerts = [];
         });
     }

@@ -29,6 +29,7 @@
                 add: addAlert,
                 closeAlert: closeAlert,
                 closeAlertByIndex: closeAlertByIndex,
+                closeAllAlerts: closeAllAlerts,
                 clear: clear,
                 get: get,
                 success: success,
@@ -123,6 +124,13 @@
                     }, alertOptions.timeout);
                 }
                 return alert;
+            }
+
+            // Close all alerts
+            function closeAllAlerts() {
+                for ( alert in alerts ) {
+                    closeAlert( alert.id, alerts )
+                }
             }
 
             function closeAlert(id, extAlerts) {

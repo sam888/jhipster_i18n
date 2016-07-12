@@ -12,4 +12,5 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface LocaleRepository extends JpaRepository<Locale,Long> {
 
+    List<Locale> findByLanguageCode(String languageCode);
 }

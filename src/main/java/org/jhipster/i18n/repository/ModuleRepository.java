@@ -12,4 +12,5 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface ModuleRepository extends JpaRepository<Module,Long> {
 
+    Module findByNameIgnoreCase(String moduleName);
 }

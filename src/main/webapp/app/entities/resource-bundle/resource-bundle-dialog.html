@@ -43,9 +43,9 @@
         <div class="form-group required">
             <label class="control-label" translate="jhipsterI18NApp.resourceBundle.status" for="field_status">Status</label>
             <select class="form-control" name="status" ng-model="vm.resourceBundle.status" id="field_status" required>
-                <option value="DISABLED" translate="jhipsterI18NApp.ResourceBundleStatus.DISABLED">DISABLED</option>
-                <option value="STATIC_JSON" translate="jhipsterI18NApp.ResourceBundleStatus.STATIC_JSON">STATIC_JSON</option>
-                <option value="DB_JSON" translate="jhipsterI18NApp.ResourceBundleStatus.DB_JSON">DB_JSON</option>
+                <option value="DISABLED" >Disabled</option>
+                <option value="STATIC_JSON" >Static JSON</option>
+                <option value="DB_JSON" >Database JSON</option>
             </select>
             <div ng-show="editForm.status.$invalid">
                 <p class="help-block"

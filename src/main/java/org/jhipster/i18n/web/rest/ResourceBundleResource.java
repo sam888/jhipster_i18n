@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import org.jhipster.i18n.domain.ResourceBundle;
 import org.jhipster.i18n.repository.ResourceBundleRepository;
 import org.jhipster.i18n.repository.search.ResourceBundleSearchRepository;
+import org.jhipster.i18n.service.I18nService;
 import org.jhipster.i18n.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,10 @@ public class ResourceBundleResource {
     
     @Inject
     private ResourceBundleSearchRepository resourceBundleSearchRepository;
-    
+
+    @Inject
+    private I18nService i18nService;
+
     /**
      * POST  /resource-bundles : Create a new resourceBundle.
      *
@@ -158,4 +162,20 @@ public class ResourceBundleResource {
     }
 
 
+    /**
+     * POST  /resource-bundles/:id/clear-cache : clear the key-value map cache for the "id" resourceBundle
+     *
+     * @param resourceBundle   the ResourceBundle to clear key-value map cache
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @RequestMapping(value = "/resource-bundles/clear-cache",
+            method = RequestMethod.PUT,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Void> clearCache(@RequestBody ResourceBundle resourceBundle) {
+        log.debug("REST request to clear cache for ResourceBundle: {}", resourceBundle.getId());
+
+        i18nService.clearCache( resourceBundle );
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("resourceBundle", "CLEAR_CACHE_SUCCESS" )).build();
+    }
 }
