@@ -5,8 +5,8 @@
 
 1. Check out a copy of i18n from Git to your local PC
 
-2. Find i18n.sql from i18n project folder and copy it to your PostgreSQL
-   installation folder
+2. Find i18n.sql from i18n project folder and copy it to the bin folder of PostgreSQL
+   installation, e.g. e.g. .../<PostgreSQL installation folder>/9.4/bin/.
 
 3. Use pgAdmin (PostgreSQL GUI Tool) to run the following SQL
 
@@ -18,12 +18,12 @@
 
    grant all privileges on database i18n to i18n;
 
-4. Run the following command in console where the current directory is the
-   PostgreSQL installation folder
+4. Open a console and cd into that bin folder above then run the following command to create i18n database
+   and load its data from i18n.sql.
 
         psql -U i18n -d i18n -f i18n.sql
 
-   Command to restore PostgreSQL database:
+   The command above has the following format to restore a PostgreSQL database from a SQL file:
         $ psql -U {user-name} -d {desintation_db}-f {dumpfilename.sql}
 
 
@@ -33,11 +33,11 @@
         gradle bootRun
 
 6. Optional: To back up all the data in i18n database, run the following command
-   in console where the current directory is the PostgreSQL installation folder
+   in console where the current directory is the bin folder above.
 
         pg_dump -U i18n -d i18n -f i18n.sql
 
-    Command to backup PostgreSQL database:
+   The command above has the following format to backup a PostgreSQL database into a SQL file:
         $ pg_dump -U {user-name} {source_db} -f {dumpfilename.sql}
 
 
@@ -49,4 +49,5 @@
 
 
  Author: Samuel Huang
- Date:   12-July-2016
+ Date Created: 12-July-2016
+ Last updated: 18-July-2016
