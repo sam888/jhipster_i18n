@@ -78,7 +78,7 @@ public class I18nService {
         // http://www.artima.com/intv/bloch13.html
         Map<String, String> keyValueMapToReturn = new HashMap<String, String>();
         keyValueMapToReturn.putAll( keyValueMap );
-        return keyValueMap;
+        return keyValueMapToReturn;
     }
 
     public boolean isResourceBundleRegistered(String languageCode, String moduleName) {
